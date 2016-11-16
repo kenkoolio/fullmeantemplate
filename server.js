@@ -8,8 +8,8 @@ var bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use(express.static(path.join(appRoot.path, '/client')));
-app.use(express.static(path.join(appRoot.path, '/bower_components')));
+app.use(express.static(appRoot + '/client'));
+app.use(express.static(appRoot + '/bower_components'));
 
 
 require(appRoot + '/server/config/mongoose.js');
