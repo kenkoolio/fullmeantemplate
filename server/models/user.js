@@ -21,7 +21,7 @@ var usersSchema = new mongoose.Schema({
     },
     birthday: {
         type: Date,
-        required: true
+        required: false
     }
 }, {
     timestamps: {
@@ -36,6 +36,10 @@ usersSchema.methods.generateHash = function(password) {
 
 usersSchema.methods.validPassword = function(password) {
     return bcrypt.compareSync(password, this.password);
+};
+
+usersSchema.methods.fullName = function() {
+    return this.first_name + " " + this.last_name;
 };
 
 usersSchema.pre('save', function(done) {

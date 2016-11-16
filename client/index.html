@@ -9,7 +9,15 @@
   <script src = 'angular-cookies/angular-cookies.js'></script>
   <script src="app/app.js" charset="utf-8"></script>
 </head>
-<body ng-controller = ''>
+<body ng-controller = 'registrationController as regCtrl'>
+  Hello?
+  <form ng-submit='regCtrl.register()'>
+    First Name: <input type='text' ng-model="regCtrl.newUser.first_name"/>
+    Last Name: <input type='text' ng-model="regCtrl.newUser.last_name"/>
+    Email: <input type='text' ng-model="regCtrl.newUser.email"/>
+    Password: <input type='text' ng-model="regCtrl.newUser.password"/>
+    <input type='submit' value='submit'>
+  </form>
 
 </body>
 </html>
